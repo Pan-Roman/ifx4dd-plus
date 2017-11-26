@@ -142,6 +142,12 @@ class Driver extends AbstractInformixDriver
         if ( ! empty($params['port']) ) {
             $dsn .= 'service=' . $params['port'] . ';';
         }
+        if ( ! empty($params['client_locale']) ) {
+            $dsn .= 'client_locale=' . $params['client_locale'] . ';';
+        }
+        if ( ! empty($params['db_locale']) ) {
+            $dsn .= 'db_locale=' . $params['db_locale'] . ';';
+        }
 
         return $dsn;
 

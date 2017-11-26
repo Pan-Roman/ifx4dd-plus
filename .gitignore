@@ -7,3 +7,4 @@ phpunit.*.xml
 /build/logs/*
 .php-version
 /composer.lock
+/nbproject/private/
