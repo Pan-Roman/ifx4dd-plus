@@ -121,8 +121,8 @@ in first place to the autoloader).
         'dbname'       => 'test_database',
         'user'         => 'user',
         'password'     => 'password',
-        'db_locale'     => 'ru_RU.1251',		// optional
-        'client_locale'     => 'ru_RU.1251',	// optional
+        'db_locale'     => 'ru_RU.1251', // optional
+        'client_locale'     => 'ru_RU.1251', // optional
     );
 
     $connection = DriverManager::getConnection($connectionParams);
@@ -151,8 +151,8 @@ next example:
         'dbname'       => 'test_database',
         'user'         => 'user',
         'password'     => 'password',
-		'db_locale'     => 'ru_RU.1251',		// optional
-        'client_locale'     => 'ru_RU.1251',	// optional
+        'db_locale'     => 'ru_RU.1251', // optional
+        'client_locale'     => 'ru_RU.1251', // optional
     );
 
     $connection = DriverManager::getConnection($connectionParams);
