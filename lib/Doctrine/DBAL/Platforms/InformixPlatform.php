@@ -271,16 +271,13 @@ class InformixPlatform extends AbstractPlatform
      */
     public function getDropForeignKeySQL($foreignKey, $table)
     {
-        if (! $foreignKey instanceof ForeignKeyConstraint) {
-            $foreignKey = new Identifier($foreignKey);
+        if ( $foreignKey instanceof ForeignKeyConstraint ) {
+            $foreignKey = $foreignKey->getQuotedName($this);
         }
 
-        if (! $table instanceof Table) {
-            $table = new Identifier($table);
+        if ( $table instanceof Table ) {
+            $table = $table->getQuotedName($this);
         }
-
-        $foreignKey = $foreignKey->getQuotedName($this);
-        $table = $table->getQuotedName($this);
 
         return 'ALTER TABLE ' . $table . ' DROP CONSTRAINT ' . $foreignKey;
     }

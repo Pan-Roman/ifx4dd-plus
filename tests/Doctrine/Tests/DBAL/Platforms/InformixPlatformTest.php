@@ -724,14 +724,4 @@ class InformixPlatformTest extends AbstractPlatformTestCase
     {
         return false;
     }
-
-    protected function getQuotesReservedKeywordInTruncateTableSQL()
-    {
-        return 'TRUNCATE "select"';
-    }
-
-    protected function getQuotesDropForeignKeySQL()
-    {
-        return 'ALTER TABLE "table" DROP CONSTRAINT "select"';
-    }
 }

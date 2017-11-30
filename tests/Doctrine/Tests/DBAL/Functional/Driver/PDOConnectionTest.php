@@ -35,20 +35,13 @@ class PDOConnectionTest extends DbalFunctionalTestCase
         }
     }
 
-    protected function tearDown()
-    {
-        $this->resetSharedConn();
-
-        parent::tearDown();
-    }
-
     public function testDoesNotRequireQueryForServerVersion()
     {
         if ( $this->platform->getName() == 'informix' ) {
             $this->markTestSkipped('This test does not apply to PDO_INFORMIX');
         }
 
-        self::assertFalse($this->driverConnection->requiresQueryForServerVersion());
+        $this->assertFalse($this->driverConnection->requiresQueryForServerVersion());
     }
 
     /**
@@ -74,10 +67,6 @@ class PDOConnectionTest extends DbalFunctionalTestCase
      */
     public function testThrowsWrappedExceptionOnPrepare()
     {
-        if ($this->_conn->getDriver()->getName() === 'pdo_sqlsrv') {
-            $this->markTestSkipped('pdo_sqlsrv does not allow setting PDO::ATTR_EMULATE_PREPARES at connection level.');
-        }
-
         // Emulated prepared statements have to be disabled for this test
         // so that PDO actually communicates with the database server to check the query.
         $this->driverConnection->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
@@ -103,7 +92,7 @@ class PDOConnectionTest extends DbalFunctionalTestCase
             $this->markTestSkipped('This test only applies to PDO_INFORMIX');
         }
 
-        self::assertTrue($this->driverConnection->requiresQueryForServerVersion());
+        $this->assertTrue($this->driverConnection->requiresQueryForServerVersion());
     }
 
     /**
